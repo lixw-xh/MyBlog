@@ -1,6 +1,7 @@
 /*global $, document, Chart, LINECHART, data, options, window, setTimeout*/
 $(document).ready(function () {
 
+
     'use strict';
 
     // ------------------------------------------------------- //

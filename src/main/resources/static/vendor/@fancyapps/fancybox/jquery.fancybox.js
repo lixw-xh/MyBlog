@@ -1,5 +1,6 @@
 // ==================================================
 // fancyBox v3.5.6
+
 //
 // Licensed GPLv3 for open source use
 // or fancyBox Commercial License for commercial use

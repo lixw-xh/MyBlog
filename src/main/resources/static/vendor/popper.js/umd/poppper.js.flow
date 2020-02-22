@@ -149,3 +149,4 @@ declare module 'popper.js' {
 
   declare module.exports: Class<Popper>;
 }
+
