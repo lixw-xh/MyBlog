@@ -12,6 +12,7 @@ public class LxwApplication extends WebMvcConfigurationSupport {
     public static void main(String[] args) {
         SpringApplication.run(LxwApplication.class, args);
     }
+
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/");
