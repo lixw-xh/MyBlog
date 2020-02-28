@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.blog.lxw.dao.TestDao">
 
-    <select id="get" resultType="com.blog.lxw.entity.Blog">
+    <select id="get" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
         select * from b_blog
     </select>
 

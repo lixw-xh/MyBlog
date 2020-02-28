@@ -1,6 +1,6 @@
 package com.blog.lxw.service;
 
-import com.blog.lxw.entity.Blog;
+import com.blog.lxw.entity.mysql.MysqlBlog;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,6 @@ import java.util.ArrayList;
  */
 public interface TestService {
 
-    public ArrayList<Blog> get();
+    public ArrayList<MysqlBlog> get();
 
 }

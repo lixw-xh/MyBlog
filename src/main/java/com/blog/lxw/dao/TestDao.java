@@ -1,6 +1,6 @@
 package com.blog.lxw.dao;
 
-import com.blog.lxw.entity.Blog;
+import com.blog.lxw.entity.mysql.MysqlBlog;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;
@@ -12,5 +12,5 @@ import java.util.ArrayList;
 @Mapper
 public interface TestDao {
 
-    ArrayList<Blog> get();
+    ArrayList<MysqlBlog> get();
 }
