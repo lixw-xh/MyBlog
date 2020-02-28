@@ -1,7 +1,7 @@
 package com.blog.lxw.service.impl;
 
 import com.blog.lxw.dao.TestDao;
-import com.blog.lxw.entity.Blog;
+import com.blog.lxw.entity.mysql.MysqlBlog;
 import com.blog.lxw.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +19,8 @@ public class TestServiceImpl implements TestService {
     private TestDao testDao;
 
     @Override
-    public ArrayList<Blog> get() {
-        ArrayList<Blog> result = testDao.get();
+    public ArrayList<MysqlBlog> get() {
+        ArrayList<MysqlBlog> result = testDao.get();
         return result;
     }
 }

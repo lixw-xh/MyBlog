@@ -1,6 +1,6 @@
 package com.blog.lxw.controller;
 
-import com.blog.lxw.entity.Blog;
+import com.blog.lxw.entity.mysql.MysqlBlog;
 import com.blog.lxw.service.TestService;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.client.transport.TransportClient;
@@ -36,7 +36,7 @@ public class test {
 
     @RequestMapping(value = "/testMysql", method = RequestMethod.GET)
     public void testMysql(){
-        ArrayList<Blog> result = testService.get();
+        ArrayList<MysqlBlog> result = testService.get();
         System.out.println(result);
     }
 
