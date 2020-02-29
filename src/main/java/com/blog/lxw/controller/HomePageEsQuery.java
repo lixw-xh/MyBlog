@@ -10,6 +10,7 @@ import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,26 +36,57 @@ import java.util.Map;
 public class HomePageEsQuery {
     private final static Logger logger = LoggerFactory.getLogger(HomePageEsQuery.class);
 
+    //Es索引
+    private final static String INDEX = "blog";
+
+    //日期格式处理
+    private final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+
     @Autowired
     private TransportClient client;
 
     @RequestMapping(value = "/middlePageQry",method = RequestMethod.POST)
     public void middlePageQry(HttpServletResponse response) throws IOException, ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-        SearchResponse searchResponse = client.prepareSearch("blog")
+        SearchResponse searchResponse = client.prepareSearch(INDEX)
                 .setSize(3)
                 .get();
+        doHandle(response, sdf, simpleDateFormat, searchResponse);
+    }
+
+    @RequestMapping(value = "downPageQry", method = RequestMethod.POST)
+    public void downPageQry(HttpServletResponse response) throws IOException, ParseException {
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = format.format(date);
+        SearchResponse searchResponse = client.prepareSearch(INDEX)
+                .setQuery(QueryBuilders.termQuery("createtime", dateStr))
+                .setSize(3)
+                .get();
+        doHandle(response, sdf, simpleDateFormat, searchResponse);
+    }
+
+    @RequestMapping(value = "/bottomPageQry", method = RequestMethod.POST)
+    public void bottomPageQry(HttpServletResponse response) throws IOException, ParseException {
+        SearchResponse searchResponse = client.prepareSearch(INDEX)
+                .setQuery(QueryBuilders.matchAllQuery())
+                .addSort("likes", SortOrder.DESC)
+                .setSize(3)
+                .get();
+        doHandle(response, sdf, simpleDateFormat, searchResponse);
+    }
+
+    private void doHandle(HttpServletResponse response, SimpleDateFormat sdf, SimpleDateFormat simpleDateFormat, SearchResponse searchResponse) throws ParseException, IOException {
         SearchHits hits = searchResponse.getHits();
         JSONArray result = new JSONArray();
         for (SearchHit hit:hits){
-            JSONObject dataJson = JSONObject.fromObject(hit.getSourceAsString());
-            String param = (String) dataJson.get("createtime");
+            JSONObject jsonData = JSONObject.fromObject(hit.getSourceAsString());
+            String param = (String) jsonData.get("createtime");
             param = param.replace("Z"," UTC");
-            Date dateTran = simpleDateFormat.parse(param);
-            String createtime = sdf.format(dateTran);
-            dataJson.put("createtime",createtime);
-            result.add(dataJson);
+            Date datePar = simpleDateFormat.parse(param);
+            String createtime = sdf.format(datePar);
+            jsonData.put("createtime",createtime);
+            result.add(jsonData);
         }
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json; charset=utf-8");
