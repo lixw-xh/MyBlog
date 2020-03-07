@@ -58,15 +58,12 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a href="/blog/index" class="nav-link active ">首页</a>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
+              <li class="nav-item"><a href="/blog/community" class="nav-link ">社区</a>
               </li>
-              <li class="nav-item"><a href="post.html" class="nav-link ">Post</a>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
+              <li class="nav-item"><a href="#" class="nav-link ">写博客</a>
               </li>
             </ul>
             <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
-            <ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>
           </div>
         </div>
       </nav>
@@ -176,40 +173,40 @@
             }
           });
           $.ajax({
-            type:"post",
-            url:"/blog/downPageQry",
-            data:{},
-            success:function(data){
-              $.each(data, function (index,items) {
-                $("#downBlogData").append("<div class=\"post col-md-4\">\n" +
-                        "            <div class=\"post-thumbnail\"><a href=\"post.html\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
-                        "            <div class=\"post-details\">\n" +
-                        "              <div class=\"post-meta d-flex justify-content-between\">\n" +
-                        "                <div class=\"date\">"+data[index].createtime+"</div>\n" +
-                        "                <div class=\"category\"><a href=\"#\">"+data[index].type+"</a></div>\n" +
-                        "              </div><a href=\"post.html\">\n" +
-                        "                <h3 class=\"h4\">"+data[index].title+"</h3></a>\n" +
-                        "              <p class=\"text-muted\">"+data[index].outline+"</p>\n" +
-                        "            </div>\n" +
-                        "          </div>");
-              })
-            }
-          });
+              type:"post",
+              url:"/blog/downPageQry",
+              data:{},
+              success:function(data){
+                $.each(data, function (index,items) {
+                  $("#downBlogData").append("<div class=\"post col-md-4\">\n" +
+                          "            <div class=\"post-thumbnail\"><a href=\"post.html\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
+                          "            <div class=\"post-details\">\n" +
+                          "              <div class=\"post-meta d-flex justify-content-between\">\n" +
+                          "                <div class=\"date\">"+data[index].createtime+"</div>\n" +
+                          "                <div class=\"category\"><a href=\"#\">"+data[index].type+"</a></div>\n" +
+                          "              </div><a href=\"post.html\">\n" +
+                          "                <h3 class=\"h4\">"+data[index].title+"</h3></a>\n" +
+                          "              <p class=\"text-muted\">"+data[index].outline+"</p>\n" +
+                          "            </div>\n" +
+                          "          </div>");
+                })
+              }
+            });
           $.ajax({
-            type:"post",
-            url:"/blog/bottomPageQry",
-            data:{},
-            success:function (data) {
-              $.each(data, function (index, items) {
-                $("#bottomBlogData").append("<a href=\"#\">\n" +
-                        "                <div class=\"post d-flex align-items-center\" >\n" +
-                        "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
-                        "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
-                        "                </div>\n" +
-                        "                </a>");
-              })
-            }
-          });
+              type:"post",
+              url:"/blog/bottomPageQry",
+              data:{},
+              success:function (data) {
+                $.each(data, function (index, items) {
+                  $("#bottomBlogData").append("<a href=\"#\">\n" +
+                          "                <div class=\"post d-flex align-items-center\" >\n" +
+                          "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                          "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
+                          "                </div>\n" +
+                          "                </a>");
+                })
+              }
+            });
       }
     </script>
     <!-- JavaScript files-->
