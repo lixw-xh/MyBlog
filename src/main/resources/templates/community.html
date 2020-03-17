@@ -102,47 +102,9 @@
           <!-- Widget [Latest Posts Widget]        -->
           <div class="widget latest-posts">
             <header>
-              <h3 class="h6">Latest Posts</h3>
+              <h3 class="h6">浏览 最多</h3>
             </header>
-            <div class="blog-posts"><a href="#">
-                <div class="item d-flex align-items-center">
-                  <div class="image"><img src="/static/img/small-thumbnail-1.jpg" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                    <div class="d-flex align-items-center">
-                      <div class="views"><i class="icon-eye"></i> 500</div>
-                      <div class="comments"><i class="icon-comment"></i>12</div>
-                    </div>
-                  </div>
-                </div></a><a href="#">
-                <div class="item d-flex align-items-center">
-                  <div class="image"><img src="/static/img/small-thumbnail-2.jpg" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                    <div class="d-flex align-items-center">
-                      <div class="views"><i class="icon-eye"></i> 500</div>
-                      <div class="comments"><i class="icon-comment"></i>12</div>
-                    </div>
-                  </div>
-                </div></a><a href="#">
-                <div class="item d-flex align-items-center">
-                  <div class="image"><img src="/static/img/small-thumbnail-3.jpg" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                    <div class="d-flex align-items-center">
-                      <div class="views"><i class="icon-eye"></i> 500</div>
-                      <div class="comments"><i class="icon-comment"></i>12</div>
-                    </div>
-                  </div>
-                </div></a></div>
-          </div>
-          <!-- Widget [Categories Widget]-->
-          <div class="widget categories">
-            <header>
-              <h3 class="h6">Categories</h3>
-            </header>
-            <div class="item d-flex justify-content-between"><a href="#">Growth</a><span>12</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Sales</a><span>8</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Tips</a><span>17</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
+            <div class="blog-posts" id="mostWatch"></div>
           </div>
           <!-- Widget [Tags Cloud Widget]-->
           <div class="widget tags">       
@@ -164,67 +126,8 @@
     <footer class="main-footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <div class="logo">
-              <h6 class="text-white">Bootstrap Blog</h6>
-            </div>
-            <div class="contact-details">
-              <p>53 Broadway, Broklyn, NY 11249</p>
-              <p>Phone: (020) 123 456 789</p>
-              <p>Email: <a href="mailto:info@company.com">Info@Company.com</a></p>
-              <ul class="social-menu">
-                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-behance"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="menus d-flex">
-              <ul class="list-unstyled">
-                <li> <a href="#">My Account</a></li>
-                <li> <a href="#">Add Listing</a></li>
-                <li> <a href="#">Pricing</a></li>
-                <li> <a href="#">Privacy &amp; Policy</a></li>
-              </ul>
-              <ul class="list-unstyled">
-                <li> <a href="#">Our Partners</a></li>
-                <li> <a href="#">FAQ</a></li>
-                <li> <a href="#">How It Works</a></li>
-                <li> <a href="#">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="latest-posts"><a href="#">
-                <div class="post d-flex align-items-center">
-                  <div class="image"><img src="/static/img/small-thumbnail-1.jpg" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Hotels for all budgets</strong><span class="date last-meta">October 26, 2016</span></div>
-                </div></a><a href="#">
-                <div class="post d-flex align-items-center">
-                  <div class="image"><img src="/static/img/small-thumbnail-2.jpg" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Great street atrs in London</strong><span class="date last-meta">October 26, 2016</span></div>
-                </div></a><a href="#">
-                <div class="post d-flex align-items-center">
-                  <div class="image"><img src="/static/img/small-thumbnail-3.jpg" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Best coffee shops in Sydney</strong><span class="date last-meta">October 26, 2016</span></div>
-                </div></a></div>
-          </div>
-        </div>
-      </div>
-      <div class="copyrights">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <p>&copy; 2017. Bootstrapious All rights reserved. Your great site.</p>
-            </div>
-            <div class="col-md-6 text-right">
-              More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                
-              </p>
-            </div>
+          <div class="col-md-4" >
+            <div class="latest-posts" id="bottomBlogData"></div>
           </div>
         </div>
       </div>
@@ -243,7 +146,7 @@
                         "                  <div class=\"post-meta d-flex justify-content-between\">\n" +
                         "                    <div class=\"date meta-last\">"+data[index].createtime+"</div>\n" +
                         "                    <div class=\"category\"><a href=\"#\">"+data[index].type+"</a></div>\n" +
-                        "                  </div><a href=\"post.html\">\n" +
+                        "                  </div><a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                         "                    <h3 class=\"h4\">"+data[index].title+"</h3></a>\n" +
                         "                  <p class=\"text-muted\">"+data[index].outline+"</p>\n" +
                         "                  <footer class=\"post-footer d-flex align-items-center\"><a href=\"#\" class=\"author d-flex align-items-center flex-wrap\">\n" +
@@ -255,7 +158,41 @@
                         "                </div>");
               })
             }
-          })
+          });
+          $.ajax({
+            type:"post",
+            url:"/blog/getMostWatch",
+            data:{},
+            success: function (data) {
+              $.each(data, function (index, items) {
+                $("#mostWatch").append("<a href=\"#\">\n" +
+                        "                <div class=\"item d-flex align-items-center\">\n" +
+                        "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                        "                  <div class=\"title\"><strong>"+data[index].title+"</strong>\n" +
+                        "                    <div class=\"d-flex align-items-center\">\n" +
+                        "                      <div class=\"views\"><i class=\"icon-eye\"></i> "+data[index].watch+"</div>\n" +
+                        "                      <div class=\"comments\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                        "                    </div>\n" +
+                        "                  </div>\n" +
+                        "                </div></a>");
+              })
+            }
+          });
+          $.ajax({
+          type:"post",
+          url:"/blog/bottomPageQry",
+          data:{},
+          success:function (data) {
+            $.each(data, function (index, items) {
+              $("#bottomBlogData").append("<a href=\"#\">\n" +
+                      "                <div class=\"post d-flex align-items-center\" >\n" +
+                      "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                      "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
+                      "                </div>\n" +
+                      "                </a>");
+            })
+          }
+        });
       }
     </script>
     <!-- JavaScript files-->

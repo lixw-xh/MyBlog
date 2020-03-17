@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyBlog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/static/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom icon font-->
+    <link rel="stylesheet" href="/static/css/fontastic.css">
+    <!-- Google fonts - Open Sans-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <!-- Fancybox-->
+    <link rel="stylesheet" href="/static/vendor/@fancyapps/fancybox/jquery.fancybox.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/static/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <header class="header">
+      <!-- Main Navbar-->
+      <nav class="navbar navbar-expand-lg">
+        <div class="search-area">
+          <div class="search-area-inner d-flex align-items-center justify-content-center">
+            <div class="close-btn"><i class="icon-close"></i></div>
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-8">
+                <form action="#">
+                  <div class="form-group">
+                    <input type="search" name="search" id="search" placeholder="What are you looking for?">
+                    <button type="submit" class="submit"><i class="icon-search-1"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <!-- Navbar Brand -->
+          <div class="navbar-header d-flex align-items-center justify-content-between">
+            <!-- Navbar Brand --><a href="index.html" class="navbar-brand">MyBlog</a>
+            <!-- Toggle Button-->
+            <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
+          </div>
+          <!-- Navbar Menu -->
+          <div id="navbarcollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a href="/blog/index" class="nav-link ">首页</a>
+              </li>
+              <li class="nav-item"><a href="/blog/community" class="nav-link active ">社区</a>
+              </li>
+              <li class="nav-item"><a href="post.html" class="nav-link ">写博客</a>
+              </li>
+            </ul>
+            <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="post blog-post col-lg-8"> 
+          <div class="container">
+            <div class="post-single" id="blogData">
+              <div class="post-details" >
+                <div class="post-tags"><a href="#" class="tag">#Business</a><a href="#" class="tag">#Tricks</a><a href="#" class="tag">#Financial</a><a href="#" class="tag">#Economy</a></div>
+                <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row"><a href="#" class="prev-post text-left d-flex align-items-center">
+                    <div class="icon prev"><i class="fa fa-angle-left"></i></div>
+                    <div class="text"><strong class="text-primary">Previous Post </strong>
+                      <h6>I Bought a Wedding Dress.</h6>
+                    </div></a><a href="#" class="next-post text-right d-flex align-items-center justify-content-end">
+                    <div class="text"><strong class="text-primary">Next Post </strong>
+                      <h6>I Bought a Wedding Dress.</h6>
+                    </div>
+                    <div class="icon next"><i class="fa fa-angle-right">   </i></div></a></div>
+                <div class="post-comments">
+                  <header>
+                    <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
+                  </header>
+                  <div class="comment">
+                    <div class="comment-header d-flex justify-content-between">
+                      <div class="user d-flex align-items-center">
+                        <div class="image"><img src="/static/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
+                      </div>
+                    </div>
+                    <div class="comment-body">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                  </div>
+                  <div class="comment">
+                    <div class="comment-header d-flex justify-content-between">
+                      <div class="user d-flex align-items-center">
+                        <div class="image"><img src="/static/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
+                      </div>
+                    </div>
+                    <div class="comment-body">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                  </div>
+                  <div class="comment">
+                    <div class="comment-header d-flex justify-content-between">
+                      <div class="user d-flex align-items-center">
+                        <div class="image"><img src="/static/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
+                      </div>
+                    </div>
+                    <div class="comment-body">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-comment">
+                  <header>
+                    <h3 class="h6">Leave a reply</h3>
+                  </header>
+                  <form action="#" class="commenting-form">
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <input type="text" name="username" id="username" placeholder="Name" class="form-control">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="email" name="username" id="useremail" placeholder="Email Address (will not be published)" class="form-control">
+                      </div>
+                      <div class="form-group col-md-12">
+                        <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control"></textarea>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <aside class="col-lg-4">
+          <!-- Widget [Search Bar Widget]-->
+          <div class="widget search">
+            <header>
+              <h3 class="h6">Search the blog</h3>
+            </header>
+            <form action="#" class="search-form">
+              <div class="form-group">
+                <input type="search" placeholder="What are you looking for?">
+                <button type="submit" class="submit"><i class="icon-search"></i></button>
+              </div>
+            </form>
+          </div>
+          <!-- Widget [Latest Posts Widget]        -->
+          <div class="widget latest-posts">
+            <header>
+              <h3 class="h6">浏览 最多</h3>
+            </header>
+            <div class="blog-posts" id="mostWatch"></div>
+          </div>
+          <!-- Widget [Tags Cloud Widget]-->
+          <div class="widget tags">       
+            <header>
+              <h3 class="h6">Tags</h3>
+            </header>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#" class="tag">#Business</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Technology</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Fashion</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Sports</a></li>
+              <li class="list-inline-item"><a href="#" class="tag">#Economy</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" >
+            <div class="latest-posts" id="bottomBlogData"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <input type='hidden' id="blogId" name="blogId"  th:value="${blogId}" readonly="readonly" />
+    <script type="text/javascript">
+      window.onload=function () {
+        var blogId={
+          "blogId": document.getElementById("blogId").value
+        };
+        $.ajax({
+          type:"post",
+          url:"/blog/accrodingToId",
+          data: blogId,
+          success: function (data) {
+            $("#blogData").append("<img src=\""+data.picture+"\" alt=\"...\" class=\"img-fluid\"><div class=\"post-meta d-flex justify-content-between\">\n" +
+                    "                  <div class=\"category\"><a>"+data.type+"</a></div>\n" +
+                    "                </div>\n" +
+                    "                <h1>"+data.title+"<i class=\"fa fa-bookmark-o\"></i></h1>\n" +
+                    "                <div class=\"post-footer d-flex align-items-center flex-column flex-sm-row\">\n" +
+                    "                    <div class=\"avatar\"></div>\n" +
+                    "                    <div class=\"title\"><span>"+data.author+"</span></div></a>\n" +
+                    "                  <div class=\"d-flex align-items-center flex-wrap\">\n" +
+                    "                    <div class=\"date\"><i class=\"icon-clock\"></i> "+data.createtime+"</div>\n" +
+                    "                    <div class=\"views\"><i class=\"icon-eye\"></i> "+data.watch+"</div>\n" +
+                    "                    <div class=\"comments meta-last\"><i class=\"icon-comment\"></i>"+data.comment+"</div>\n" +
+                    "                  </div>\n" +
+                    "                </div>\n" +
+                    "                <div class=\"post-body\">\n" +
+                    "                  <p>"+data.content+"</p>\n" +
+                    "                </div>");
+          }
+        });
+        $.ajax({
+          type:"post",
+          url:"/blog/getMostWatch",
+          data:{},
+          success: function (data) {
+            $.each(data, function (index, items) {
+              $("#mostWatch").append("<a href=\"#\">\n" +
+                      "                <div class=\"item d-flex align-items-center\">\n" +
+                      "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                      "                  <div class=\"title\"><strong>"+data[index].title+"</strong>\n" +
+                      "                    <div class=\"d-flex align-items-center\">\n" +
+                      "                      <div class=\"views\"><i class=\"icon-eye\"></i> "+data[index].watch+"</div>\n" +
+                      "                      <div class=\"comments\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                      "                    </div>\n" +
+                      "                  </div>\n" +
+                      "                </div></a>");
+            })
+          }
+        });
+        $.ajax({
+          type:"post",
+          url:"/blog/bottomPageQry",
+          data:{},
+          success:function (data) {
+            $.each(data, function (index, items) {
+              $("#bottomBlogData").append("<a href=\"#\">\n" +
+                      "                <div class=\"post d-flex align-items-center\" >\n" +
+                      "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                      "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
+                      "                </div>\n" +
+                      "                </a>");
+            })
+          }
+        });
+      }
+    </script>
+    <!-- JavaScript files-->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/static/vendor/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
+    <script src="/static/js/front.js"></script>
+  </body>
+</html>

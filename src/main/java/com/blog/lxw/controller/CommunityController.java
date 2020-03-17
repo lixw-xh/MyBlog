@@ -5,8 +5,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,16 @@ public class CommunityController {
     public void getBlogData(HttpServletResponse response) throws IOException, ParseException {
         SearchResponse searchResponse = client.prepareSearch(INDEX)
                 .setSize(4)
+                .get();
+        resultHandle.doHandle(response, searchResponse);
+    }
+
+    @RequestMapping(value = "/getMostWatch",method = RequestMethod.POST)
+    public void getMostWatch(HttpServletResponse response) throws IOException, ParseException {
+        SearchResponse searchResponse = client.prepareSearch(INDEX)
+                .setQuery(QueryBuilders.matchAllQuery())
+                .addSort("watch", SortOrder.DESC)
+                .setSize(3)
                 .get();
         resultHandle.doHandle(response, searchResponse);
     }
