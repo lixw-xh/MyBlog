@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class IntoHomePage {
     private final static Logger logger = LoggerFactory.getLogger(IntoHomePage.class);
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView("index");
         logger.info("登录首页");

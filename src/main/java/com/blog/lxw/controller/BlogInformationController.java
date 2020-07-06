@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import static org.apache.commons.beanutils.BeanUtils.populate;
@@ -43,6 +45,9 @@ public class BlogInformationController {
 
     //索引
     private final static String INDEX = "blog";
+    //日期格式处理
+    private final static SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
 
     @RequestMapping(value = "/idQry", method = RequestMethod.GET)
     public ModelAndView idQry(EsBlog esBlog){
@@ -59,6 +64,13 @@ public class BlogInformationController {
         GetResponse searchResponse = client.prepareGet(INDEX,"_doc",blogId).get();
         Map<String,Object> source = searchResponse.getSource();
         JSONObject result = new JSONObject(source);
+        logger.info("处理日期格式");
+        String param = (String) result.get("createtime");
+        param = param.replace("Z"," UTC");
+        Date datePar = SIMPLE_DATE_FORMAT.parse(param);
+        String createtime = SDF.format(datePar);
+        result.put("createtime",createtime);
+        logger.info("处理完成");
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json; charset=utf-8");
         logger.info("AJAX返回数据信息");

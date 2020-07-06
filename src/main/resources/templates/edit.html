@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>MyBlog</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- 最新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" type="text/css" href="/static/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/plugins/bootstrap/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+
+</head>
+<body ng-app="App" ng-controller="mainController" class="ng-scope">
+<div class="cat_add">
+	<div class="cat_add_header">
+	    <div class="icon"></div>
+	    <div class="title">撰写博客</div>
+	</div>
+	<div class="cat_add_form">
+	    <form class="form-horizontal" method="post" action="/blog/addBlog" enctype="multipart/form-data">
+            <div class="form-group form-group-sm">
+                <label class="control-label col-md-1">文章标题</label>
+                <div class="col-md-3">
+                    <input class="form-control input-lg" type="text" id="title" name="title" value="" placeholder="请输入文章标题" />
+                </div>
+                <span class="glyphicon glyphicon-asterisk star"></span>
+                <label class="explain">请输入8个字的以内的中文字符</label>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="control-label col-md-1">文章简介</label>
+                <div class="col-md-3">
+                    <input class="form-control input-lg" type="text" id="outline" name="outline" value="" placeholder="请输入文章简介" />
+                </div>
+                <span class="glyphicon glyphicon-asterisk star"></span>
+                <label class="explain">请输入300字的以内的中文字符或英文字符</label>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="control-label col-md-1">文章图片</label>
+                <div class="col-md-3">
+                    <input class="file" style="margin-left:-15px" name="goods_img" size="160x95"  rate="0.8" type="text" value="" />
+                    <input type="hidden" name="old_goods_img" value="" />
+                    <input type="hidden" id="picture" name="picture" value="" />
+                </div>
+                <span class="glyphicon glyphicon-asterisk star"></span>
+                <label class="explain">请上传一张图片，格式jpg，尺寸640*384，大小在30k之内</label>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="control-label col-md-1">文章类型</label>
+                <div class="col-md-3">
+                    <select class="form-control input-lg" id="type" name="type" style="margin-left:-15px;margin-top: 5px;">
+                        <option value="Business">Business</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Economy">Economy</option>
+                    </select>
+                </div>
+                <span class="glyphicon glyphicon-asterisk star"></span>
+                <label class="explain">请选择一个文章类别</label>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="control-label col-md-1">文章内容</label>
+                <div class="col-md-3">
+                    <textarea class="form-control" rows="5" id="content" name="content" placeholder="请输入文章内容" style="margin-left: -17px;"></textarea>
+                </div>
+                <span class="glyphicon glyphicon-asterisk star"></span>
+                <label class="explain" style="margin-top: 52px;">请输入文章内容</label>
+            </div>
+        	<div class="form-group form-group-sm" style="margin-top: 30px;">
+                <div class="col-md-3 col-md-offset-2">
+                    <div class="btn-group">
+                        <button style="margin-right: 15px;" type="button" class="btn btn-default btn-sm" onclick="history.back()" title="返回"><i class="glyphicon glyphicon-chevron-left"></i> 返回</button>
+                        <button type="submit" class="btn btn-danger btn-sm" title="添加" onclick="getName(this)"><i class="glyphicon glyphicon-floppy-save"></i> 添加</button>
+                    </div>
+                </div>
+            </div>
+	    </form>
+	</div>
+    
+</div>
+<script type="text/javascript">
+    function getName(){
+        document.getElementById("picture").value = $('img').attr('src');
+    }
+
+</script>
+<!-- 最新 jQuery 核心 js 文件 -->
+<script type="text/javascript" src="/static/js/jquery/jquery.min.js"></script>
+<!-- 最新 Angular 核心 js 文件 -->
+<script type="text/javascript" src="/static/plugins/angular/angular.min.js"></script>
+<!-- 最新 ocLazyLoad 核心 js 文件 -->
+<script type="text/javascript" src="/static/plugins/ocLazyLoad/ocLazyLoad.min.js"></script>
+
+<script type="text/javascript" src="/static/js/angular/provider.js"></script>
+<script type="text/javascript" src="/static/js/angular/service.js"></script>
+<script type="text/javascript" src="/static/js/angular/directives.js"></script>
+<script type="text/javascript" src="/static/js/angular/filters.js"></script>
+<script type="text/javascript" src="/static/js/app.js"></script>
+</body>
+</html>

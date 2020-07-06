@@ -7,10 +7,12 @@ import java.util.ArrayList;
 
 /**
  * @author Lixw
- * @date 2020/2/23
+ * @date 2020/6/7
+ * 社区查询服务
  */
 @Mapper
-public interface TestDao {
+public interface CommunityDao {
+    public MysqlBlog getPageNumber();
 
-    ArrayList<MysqlBlog> get();
+    public ArrayList<MysqlBlog> getBlogAccordPageNumber(int row);
 }
