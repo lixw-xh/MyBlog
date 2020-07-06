@@ -56,11 +56,9 @@ public class HomePageEsQuery {
 
     @RequestMapping(value = "/downPageQry", method = RequestMethod.POST)
     public void downPageQry(HttpServletResponse response) throws IOException, ParseException {
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String dateStr = format.format(date);
         SearchResponse searchResponse = client.prepareSearch(INDEX)
-                .setQuery(QueryBuilders.termQuery("createtime", dateStr))
+                .setQuery(QueryBuilders.matchAllQuery())
+                .addSort("createtime", SortOrder.DESC)
                 .setSize(3)
                 .get();
         resultHandle.doHandle(response, searchResponse);

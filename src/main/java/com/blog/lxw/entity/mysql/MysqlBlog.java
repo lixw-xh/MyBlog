@@ -28,5 +28,9 @@ public class MysqlBlog {
     private String type;
     private Date createtime;
     private Date updatetime;
+    private int dataNumber;
+
+    //搜索条件
+    private String factor;
 
 }

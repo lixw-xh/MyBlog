@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.blog.lxw.dao.EditBlogDao">
+
+    <insert id="addBlog" parameterType="String">
+        insert into b_blog(title,outline,content,picture,watch,
+                            comment,likes,author,type,createtime,updatetime)
+                    values(#{title},#{outline},#{content},#{picture},0,0,0,"John Doe",#{type},now(),now())
+    </insert>
+
+</mapper>

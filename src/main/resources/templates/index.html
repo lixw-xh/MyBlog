@@ -36,9 +36,9 @@
             <div class="close-btn"><i class="icon-close"></i></div>
             <div class="row d-flex justify-content-center">
               <div class="col-md-8">
-                <form action="#">
+                <form action="/blog/searchPage" method="post">
                   <div class="form-group">
-                    <input type="search" name="search" id="search" placeholder="What are you looking for?">
+                    <input type="search" name="factor" id="factor" placeholder="What are you looking for?">
                     <button type="submit" class="submit"><i class="icon-search-1"></i></button>
                   </div>
                 </form>
@@ -60,7 +60,7 @@
               </li>
               <li class="nav-item"><a href="/blog/community" class="nav-link ">社区</a>
               </li>
-              <li class="nav-item"><a href="#" class="nav-link ">写博客</a>
+              <li class="nav-item"><a href="/blog/editBlog" class="nav-link ">写博客</a>
               </li>
             </ul>
             <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
@@ -154,11 +154,11 @@
                         "            <div class=\"text-inner d-flex align-items-center\">\n" +
                         "              <div class=\"content\">\n" +
                         "                <header class=\"post-header\">\n" +
-                        "                  <div class=\"category\"><a href=\"#\">"+data[index].type+"</div><a href=\"post.html\">\n" +
+                        "                  <div class=\"category\"><a>"+data[index].type+"</div><a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                         "                    <h2 class=\"h4\">"+data[index].title+"</h2></a>\n" +
                         "                </header>\n" +
                         "                <p>"+data[index].outline+"</p>\n" +
-                        "                <footer class=\"post-footer d-flex align-items-center\"><a href=\"#\" class=\"author d-flex align-items-center flex-wrap\">\n" +
+                        "                <footer class=\"post-footer d-flex align-items-center\"><a class=\"author d-flex align-items-center flex-wrap\">\n" +
                         "                    <div class=\"avatar\"></div>\n" +
                         "                    <div class=\"title\"><span>"+data[index].author+"</span></div></a>\n" +
                         "                  <div class=\"date\"><i class=\"icon-clock\"></i>"+data[index].createtime+"</div>\n" +
@@ -179,12 +179,12 @@
               success:function(data){
                 $.each(data, function (index,items) {
                   $("#downBlogData").append("<div class=\"post col-md-4\">\n" +
-                          "            <div class=\"post-thumbnail\"><a href=\"post.html\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
+                          "            <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
                           "            <div class=\"post-details\">\n" +
                           "              <div class=\"post-meta d-flex justify-content-between\">\n" +
                           "                <div class=\"date\">"+data[index].createtime+"</div>\n" +
-                          "                <div class=\"category\"><a href=\"#\">"+data[index].type+"</a></div>\n" +
-                          "              </div><a href=\"post.html\">\n" +
+                          "                <div class=\"category\"><a>"+data[index].type+"</a></div>\n" +
+                          "              </div><a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                           "                <h3 class=\"h4\">"+data[index].title+"</h3></a>\n" +
                           "              <p class=\"text-muted\">"+data[index].outline+"</p>\n" +
                           "            </div>\n" +
@@ -198,7 +198,7 @@
               data:{},
               success:function (data) {
                 $.each(data, function (index, items) {
-                  $("#bottomBlogData").append("<a href=\"#\">\n" +
+                  $("#bottomBlogData").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                           "                <div class=\"post d-flex align-items-center\" >\n" +
                           "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                           "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +

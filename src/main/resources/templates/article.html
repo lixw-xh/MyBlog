@@ -36,9 +36,9 @@
             <div class="close-btn"><i class="icon-close"></i></div>
             <div class="row d-flex justify-content-center">
               <div class="col-md-8">
-                <form action="#">
+                <form action="/blog/searchPage" method="post">
                   <div class="form-group">
-                    <input type="search" name="search" id="search" placeholder="What are you looking for?">
+                    <input type="search" name="factor" id="factor" placeholder="What are you looking for?">
                     <button type="submit" class="submit"><i class="icon-search-1"></i></button>
                   </div>
                 </form>
@@ -60,7 +60,7 @@
               </li>
               <li class="nav-item"><a href="/blog/community" class="nav-link active ">社区</a>
               </li>
-              <li class="nav-item"><a href="post.html" class="nav-link ">写博客</a>
+              <li class="nav-item"><a href="/blog/editBlog" class="nav-link ">写博客</a>
               </li>
             </ul>
             <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
@@ -75,75 +75,6 @@
           <div class="container">
             <div class="post-single" id="blogData">
               <div class="post-details" >
-                <div class="post-tags"><a href="#" class="tag">#Business</a><a href="#" class="tag">#Tricks</a><a href="#" class="tag">#Financial</a><a href="#" class="tag">#Economy</a></div>
-                <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row"><a href="#" class="prev-post text-left d-flex align-items-center">
-                    <div class="icon prev"><i class="fa fa-angle-left"></i></div>
-                    <div class="text"><strong class="text-primary">Previous Post </strong>
-                      <h6>I Bought a Wedding Dress.</h6>
-                    </div></a><a href="#" class="next-post text-right d-flex align-items-center justify-content-end">
-                    <div class="text"><strong class="text-primary">Next Post </strong>
-                      <h6>I Bought a Wedding Dress.</h6>
-                    </div>
-                    <div class="icon next"><i class="fa fa-angle-right">   </i></div></a></div>
-                <div class="post-comments">
-                  <header>
-                    <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
-                  </header>
-                  <div class="comment">
-                    <div class="comment-header d-flex justify-content-between">
-                      <div class="user d-flex align-items-center">
-                        <div class="image"><img src="/static/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </div>
-                  </div>
-                  <div class="comment">
-                    <div class="comment-header d-flex justify-content-between">
-                      <div class="user d-flex align-items-center">
-                        <div class="image"><img src="/static/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </div>
-                  </div>
-                  <div class="comment">
-                    <div class="comment-header d-flex justify-content-between">
-                      <div class="user d-flex align-items-center">
-                        <div class="image"><img src="/static/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="add-comment">
-                  <header>
-                    <h3 class="h6">Leave a reply</h3>
-                  </header>
-                  <form action="#" class="commenting-form">
-                    <div class="row">
-                      <div class="form-group col-md-6">
-                        <input type="text" name="username" id="username" placeholder="Name" class="form-control">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <input type="email" name="username" id="useremail" placeholder="Email Address (will not be published)" class="form-control">
-                      </div>
-                      <div class="form-group col-md-12">
-                        <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control"></textarea>
-                      </div>
-                      <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
           </div>
@@ -154,9 +85,9 @@
             <header>
               <h3 class="h6">Search the blog</h3>
             </header>
-            <form action="#" class="search-form">
+            <form action="/blog/searchPage" method="post" class="search-form">
               <div class="form-group">
-                <input type="search" placeholder="What are you looking for?">
+                <input type="search" name="factor" placeholder="What are you looking for?">
                 <button type="submit" class="submit"><i class="icon-search"></i></button>
               </div>
             </form>
@@ -174,11 +105,11 @@
               <h3 class="h6">Tags</h3>
             </header>
             <ul class="list-inline">
-              <li class="list-inline-item"><a href="#" class="tag">#Business</a></li>
-              <li class="list-inline-item"><a href="#" class="tag">#Technology</a></li>
-              <li class="list-inline-item"><a href="#" class="tag">#Fashion</a></li>
-              <li class="list-inline-item"><a href="#" class="tag">#Sports</a></li>
-              <li class="list-inline-item"><a href="#" class="tag">#Economy</a></li>
+              <li class="list-inline-item"><a href="/blog/searchTagPage?Type=Business" class="tag">#Business</a></li>
+              <li class="list-inline-item"><a href="/blog/searchTagPage?Type=Technology" class="tag">#Technology</a></li>
+              <li class="list-inline-item"><a href="/blog/searchTagPage?Type=Fashion" class="tag">#Fashion</a></li>
+              <li class="list-inline-item"><a href="/blog/searchTagPage?Type=Sports" class="tag">#Sports</a></li>
+              <li class="list-inline-item"><a href="/blog/searchTagPage?Type=Economy" class="tag">#Economy</a></li>
             </ul>
           </div>
         </aside>
@@ -220,7 +151,16 @@
                     "                </div>\n" +
                     "                <div class=\"post-body\">\n" +
                     "                  <p>"+data.content+"</p>\n" +
-                    "                </div>");
+                    "                </div>" +
+                    "                <div class=\"posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row\"><a href=\"#\" class=\"prev-post text-left d-flex align-items-center\">\n" +
+                    "                    <div class=\"icon prev\"><i class=\"fa fa-angle-left\"></i></div>\n" +
+                    "                    <div class=\"text\"><strong class=\"text-primary\">Previous Post </strong>\n" +
+                    "                      <h6>I Bought a Wedding Dress.</h6>\n" +
+                    "                    </div></a><a href=\"#\" class=\"next-post text-right d-flex align-items-center justify-content-end\">\n" +
+                    "                    <div class=\"text\"><strong class=\"text-primary\">Next Post </strong>\n" +
+                    "                      <h6>I Bought a Wedding Dress.</h6>\n" +
+                    "                    </div>\n" +
+                    "                    <div class=\"icon next\"><i class=\"fa fa-angle-right\">   </i></div></a></div>");
           }
         });
         $.ajax({
@@ -229,7 +169,7 @@
           data:{},
           success: function (data) {
             $.each(data, function (index, items) {
-              $("#mostWatch").append("<a href=\"#\">\n" +
+              $("#mostWatch").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                       "                <div class=\"item d-flex align-items-center\">\n" +
                       "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                       "                  <div class=\"title\"><strong>"+data[index].title+"</strong>\n" +
@@ -248,7 +188,7 @@
           data:{},
           success:function (data) {
             $.each(data, function (index, items) {
-              $("#bottomBlogData").append("<a href=\"#\">\n" +
+              $("#bottomBlogData").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                       "                <div class=\"post d-flex align-items-center\" >\n" +
                       "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                       "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
