@@ -1,0 +1,540 @@
+html,body {
+	width: 100%;
+	min-height: 100%
+}
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	font-family: "微软雅黑",Helvetica,Tahoma,Arial,sans-serif
+}
+/* 分类 */
+.cat {width: 100%;margin: 0px 5px;}
+.cat>.cat_header{line-height: 40px;width: 80%;border-bottom: solid 1px #CDCDCD;padding: 6px 0px;}
+.cat>.cat_header>.icon{width: 20px;background-color: #f95732;height: 30px;line-height: 45px;margin: 5px;}
+.cat>.cat_header>.title{font-size: 16px;margin-left: 36px;margin-top: -40px;}
+.cat .cat_button{padding: 16px 0px;width: 80%;}
+.cat .cat_button>button{width: 138px;}
+.cat .cat_main{width: 80%;}
+.cat .cat_main thead>tr>th.center{text-align: center;}
+.cat .cat_main tr>td .fold{width: 25px;height: 25px;text-align: center;vertical-align: middle;border: solid 1px #a8b1f9;padding: 1px 5px;cursor: pointer;margin-top: 5px;}
+.cat .cat_main tr>td .sort_num{width: 56px;text-align: center;vertical-align: middle;padding-bottom: 10px}
+.cat .cat_main tr>td .sort_num input{text-align: center;}
+.cat .cat_main tr>td .name{width: 200px;padding-bottom: 10px}
+.cat .cat_main tr>td .name input{display: inline-block;width: 93px;margin-right: 7px;}
+.cat .cat_main tr>td .name button{height: 33px;margin-top: -5px;}
+.cat .cat_main tr>td .name span.shuxian{display: inline-block;width: 1px;height: 32px;background-color: #ccc;margin-bottom: -10px;}
+.cat .cat_main tr>td .name span.hengxian{display: inline-block;width: 38px;height: 1px;background-color: #ccc;margin: 0px 2px 4px -5px;}
+.cat .cat_main tr>td .is_nav{line-height: 32px;width: 50px;margin-bottom: 10px;border: solid 1px #eee;border-radius: 11px;}
+.cat .cat_main tr>td .operation{margin: 3px 0px 14px 0px}
+/* 分类添加 */
+.cat_add {width: 100%;margin: 0px 5px;}
+.cat_add>.cat_add_header{line-height: 40px;width: 80%;padding: 6px 0px;}
+.cat_add>.cat_add_header>.icon{width: 20px;background-color: #e9441e;height: 30px;line-height: 45px;margin: 5px;}
+.cat_add>.cat_add_header>.title{font-size: 13px;margin-left: 36px;margin-top: -40px;}
+.cat_add .cat_add_form{width: 80%;margin: 8px 0  0 45px}
+.cat_add .cat_add_form .form-horizontal label{font-size: 14px;font-weight: 400;font-style: normal;margin-top: 4px;}
+.cat_add .cat_add_form .form-horizontal input.form-control{height: 36px;font-size: 14px;margin-left: -16px;margin-top: 2px;}
+.cat_add .cat_add_form .form-horizontal .star{color: red;margin-left: -28px;line-height: 39px;}
+.cat_add .cat_add_form .form-horizontal .explain{font-size: 13px;color: #999;margin-left: 11px;}
+/* 文章首页 */
+.cat_add>.article_check_box{width: 80%;border: 1px solid #eee;padding: 16px 0px;margin: 0 0px 0 6px;}
+.cat_add .article_check_button{padding: 8px 14px;}
+.cat_add .article_delete{margin: 53px 0 5px 7px;}
+.cat_add .article_main{width: 80%;margin: 3px 0 0 4px;}
+.cat_add .article_main thead>tr>th.center{text-align: center;}
+.cat_add .article_main .table>thead {
+	background-color: #777;
+	background-image: -webkit-linear-gradient(top, #eee 0%, #777 100%);
+	background-image: -khtml-linear-gradient(top, #eee 0%, #777 100%);
+	background-image: -moz-linear-gradient(top, #eee 0%, #777 100%);
+	background-image: -ms-linear-gradient(top, #eee 0%, #777 100%);
+	background-image: -o-linear-gradient(top, #eee 0%, #777 100%);
+	background-image: linear-gradient(top, #eee 0, #777 100%)
+}
+.cat_add .article_main .table {width: 100%;margin-top: -1px;border-collapse: collapse;background-color: #FFF}
+
+.cat_add .article_main .table th,.cat_add .article_main .table td{border: solid 1px #cdcdcd}
+.cat_add .article_main .table tbody tr:nth-child(odd){background-color:#eee }
+.cat_add .article_main .table tbody>tr>td {padding: 6px;vertical-align: middle}
+
+/* 上传图片 */
+.thumbnail {
+	margin-bottom: 6px;
+	box-sizing: content-box
+}
+
+.thumbnail .thumbnail-image {
+	display: block;
+	color: #AAA;
+	text-align: center;
+	background-color: #EEE;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none
+}
+
+.thumbnail .thumbnail-image>img {
+	display: block
+}
+.thumbnail {
+	position: relative
+}
+
+.thumbnail .thumbnail-image {
+	text-align: left
+}
+
+.thumbnail .thumbnail-image .empty {
+	color: #CCC;
+	text-align: center
+}
+
+.thumbnail .thumbnail-image .size {
+	padding: 1px 3px;
+	font-size: 8px;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	color: #AAA;
+	background-color: #DDD
+}
+
+.thumbnail .tip {
+	display: none;
+	text-align: center;
+	color: #555;
+	background-color: rgba(221,221,221,0.8);
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	right: 4px;
+	bottom: 4px;
+	cursor: default;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none
+}
+
+.image-preview .btn {
+	display: none;
+	position: absolute;
+	right: 4px;
+	bottom: 4px
+}
+
+.images-preview {
+	margin: 0 5px 0 0;
+	float: left
+}
+
+.images-preview .btn-group {
+	display: none;
+	position: absolute;
+	right: 4px;
+	bottom: 4px
+}
+.content{
+	width: 80%;
+	margin:0 auto;
+}
+.content fieldset {
+	padding: 10px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	color: #333;
+	border: #06c dotted 1px;
+	position: relative
+}
+.content fieldset>legend {
+	display: inline-block;
+	padding: 5px 10px;
+	width: auto;
+	line-height: 30px;
+	color: #FFF;
+	font-weight: 600;
+	font-size: 14pt;
+	font-family: "微软雅黑";
+	border: 0;
+	background-color: #4F709F;
+	position: absolute;
+	top: -20px;
+	left: 10px
+}
+form .form-group label.checkbox,form .form-group label.radio {
+	display: inline-block;
+	padding-right: 10px;
+	margin: 0 auto;
+	overflow: hidden;
+	font-size: 12px
+}
+
+form .form-group label.checkbox.checkbox,form .form-group label.radio.checkbox {
+	cursor: pointer;
+	position: relative;
+	line-height: 26px;
+	height: 28px;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 26px;
+	font-weight: normal;
+	border: solid 1px #dbdbdb;
+	white-space: nowrap;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -khtml-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -moz-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -ms-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -o-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: linear-gradient(top, #FFF 0, #e0e0e0 100%)
+}
+
+form .form-group label.checkbox.checkbox:before,form .form-group label.radio.checkbox:before {
+	width: 16px;
+	height: 16px;
+	content: "";
+	border: solid 2px #b3b3b3;
+	position: absolute;
+	top: 5px;
+	left: 5px
+}
+
+form .form-group label.checkbox.checkbox:after,form .form-group label.radio.checkbox:after {
+	width: 8px;
+	height: 5px;
+	content: "";
+	border: solid 2px #999;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-khtml-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	filter: alpha(opacity=0);
+	-webkit-opacity: 0;
+	-khtml-opacity: 0;
+	-moz-opacity: 0;
+	-ms-opacity: 0;
+	-o-opacity: 0;
+	opacity: 0;
+	position: absolute;
+	top: 10px;
+	left: 9px
+}
+
+form .form-group label.checkbox.checkbox:hover:after,form .form-group label.radio.checkbox:hover:after {
+	filter: alpha(opacity=30);
+	-webkit-opacity: .3;
+	-khtml-opacity: .3;
+	-moz-opacity: .3;
+	-ms-opacity: .3;
+	-o-opacity: .3;
+	opacity: .3
+}
+
+form .form-group label.checkbox.checkbox.active,form .form-group label.radio.checkbox.active {
+	background-image: none;
+	background-color: #e0e0e0;
+	border-color: #ccc;
+	-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-khtml-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	box-shadow: inset 0 0 2px 1px #d9d9d9
+}
+
+form .form-group label.checkbox.checkbox.active:before,form .form-group label.radio.checkbox.active:before {
+	-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-khtml-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	box-shadow: inset 0 0 2px 1px #d9d9d9
+}
+
+form .form-group label.checkbox.checkbox.active:after,form .form-group label.radio.checkbox.active:after {
+	filter: alpha(opacity=100);
+	-webkit-opacity: 1;
+	-khtml-opacity: 1;
+	-moz-opacity: 1;
+	-ms-opacity: 1;
+	-o-opacity: 1;
+	opacity: 1
+}
+
+form .form-group label.checkbox.checkbox>input,form .form-group label.radio.checkbox>input {
+	display: none
+}
+
+form .form-group label.checkbox.checkbox.disabled,form .form-group label.radio.checkbox.disabled {
+	cursor: not-allowed;
+	filter: alpha(opacity=65);
+	-webkit-opacity: .65;
+	-khtml-opacity: .65;
+	-moz-opacity: .65;
+	-ms-opacity: .65;
+	-o-opacity: .65;
+	opacity: .65
+}
+
+form .form-group label.checkbox.radio,form .form-group label.radio.radio {
+	cursor: pointer;
+	position: relative;
+	line-height: 26px;
+	height: 28px;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 26px;
+	font-weight: normal;
+	border: solid 1px #dbdbdb;
+	white-space: nowrap;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -khtml-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -moz-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -ms-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -o-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: linear-gradient(top, #FFF 0, #e0e0e0 100%)
+}
+
+form .form-group label.checkbox.radio:before,form .form-group label.radio.radio:before {
+	width: 16px;
+	height: 16px;
+	content: "";
+	border: solid 2px #b3b3b3;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	position: absolute;
+	top: 5px;
+	left: 5px
+}
+
+form .form-group label.checkbox.radio:after,form .form-group label.radio.radio:after {
+	width: 8px;
+	height: 8px;
+	content: "";
+	background-color: #ccc;
+	background-image: -webkit-linear-gradient(top, #cccccc 0%, #999999 100%);
+	background-image: -khtml-linear-gradient(top, #cccccc 0%, #999999 100%);
+	background-image: -moz-linear-gradient(top, #cccccc 0%, #999999 100%);
+	background-image: -ms-linear-gradient(top, #cccccc 0%, #999999 100%);
+	background-image: -o-linear-gradient(top, #cccccc 0%, #999999 100%);
+	background-image: linear-gradient(top, #ccc 0, #999 100%);
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	filter: alpha(opacity=0);
+	-webkit-opacity: 0;
+	-khtml-opacity: 0;
+	-moz-opacity: 0;
+	-ms-opacity: 0;
+	-o-opacity: 0;
+	opacity: 0;
+	position: absolute;
+	top: 9px;
+	left: 9px
+}
+
+form .form-group label.checkbox.radio:hover:after,form .form-group label.radio.radio:hover:after {
+	filter: alpha(opacity=30);
+	-webkit-opacity: .3;
+	-khtml-opacity: .3;
+	-moz-opacity: .3;
+	-ms-opacity: .3;
+	-o-opacity: .3;
+	opacity: .3
+}
+
+form .form-group label.checkbox.radio.active,form .form-group label.radio.radio.active {
+	background-image: none;
+	background-color: #e0e0e0;
+	border-color: #ccc;
+	-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-khtml-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	box-shadow: inset 0 0 2px 1px #d9d9d9
+}
+
+form .form-group label.checkbox.radio.active:before,form .form-group label.radio.radio.active:before {
+	-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-khtml-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	box-shadow: inset 0 0 2px 1px #d9d9d9
+}
+
+form .form-group label.checkbox.radio.active:after,form .form-group label.radio.radio.active:after {
+	filter: alpha(opacity=100);
+	-webkit-opacity: 1;
+	-khtml-opacity: 1;
+	-moz-opacity: 1;
+	-ms-opacity: 1;
+	-o-opacity: 1;
+	opacity: 1
+}
+
+form .form-group label.checkbox.radio>input,form .form-group label.radio.radio>input {
+	display: none
+}
+
+form .form-group label.checkbox.radio.disabled,form .form-group label.radio.radio.disabled {
+	cursor: not-allowed;
+	filter: alpha(opacity=65);
+	-webkit-opacity: .65;
+	-khtml-opacity: .65;
+	-moz-opacity: .65;
+	-ms-opacity: .65;
+	-o-opacity: .65;
+	opacity: .65
+}
+.container-fluid .section>.main .rules label.checkbox {
+	cursor: pointer;
+	position: relative;
+	line-height: 26px;
+	height: 28px;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 26px;
+	font-weight: normal;
+	border: solid 1px #dbdbdb;
+	white-space: nowrap;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -khtml-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -moz-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -ms-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: -o-linear-gradient(top, #FFF 0%, #e0e0e0 100%);
+	background-image: linear-gradient(top, #FFF 0, #e0e0e0 100%)
+}
+
+.container-fluid .section>.main .rules label.checkbox:before {
+	width: 16px;
+	height: 16px;
+	content: "";
+	border: solid 2px #b3b3b3;
+	position: absolute;
+	top: 5px;
+	left: 5px
+}
+
+.container-fluid .section>.main .rules label.checkbox:after {
+	width: 8px;
+	height: 5px;
+	content: "";
+	border: solid 2px #999;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-khtml-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	filter: alpha(opacity=0);
+	-webkit-opacity: 0;
+	-khtml-opacity: 0;
+	-moz-opacity: 0;
+	-ms-opacity: 0;
+	-o-opacity: 0;
+	opacity: 0;
+	position: absolute;
+	top: 10px;
+	left: 9px
+}
+
+.container-fluid .section>.main .rules label.checkbox:hover:after {
+	filter: alpha(opacity=30);
+	-webkit-opacity: .3;
+	-khtml-opacity: .3;
+	-moz-opacity: .3;
+	-ms-opacity: .3;
+	-o-opacity: .3;
+	opacity: .3
+}
+
+.container-fluid .section>.main .rules label.checkbox.active {
+	background-image: none;
+	background-color: #e0e0e0;
+	border-color: #ccc;
+	-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-khtml-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	box-shadow: inset 0 0 2px 1px #d9d9d9
+}
+
+.container-fluid .section>.main .rules label.checkbox.active:before {
+	-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-khtml-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	-o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+	box-shadow: inset 0 0 2px 1px #d9d9d9
+}
+
+.container-fluid .section>.main .rules label.checkbox.active:after {
+	filter: alpha(opacity=100);
+	-webkit-opacity: 1;
+	-khtml-opacity: 1;
+	-moz-opacity: 1;
+	-ms-opacity: 1;
+	-o-opacity: 1;
+	opacity: 1
+}
+
+.container-fluid .section>.main .rules label.checkbox>input {
+	display: none
+}
+
+.container-fluid .section>.main .rules label.checkbox.disabled {
+	cursor: not-allowed;
+	filter: alpha(opacity=65);
+	-webkit-opacity: .65;
+	-khtml-opacity: .65;
+	-moz-opacity: .65;
+	-ms-opacity: .65;
+	-o-opacity: .65;
+	opacity: .65
+}

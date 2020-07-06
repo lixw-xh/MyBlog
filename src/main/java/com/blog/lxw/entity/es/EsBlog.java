@@ -49,4 +49,7 @@ public class EsBlog {
             pattern = "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis")
     private Date updatetime;
 
+    //搜索条件
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    private String factor;
 }
