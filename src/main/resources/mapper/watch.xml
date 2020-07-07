@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.blog.lxw.dao.WatchAddDao">
+
+    <update id="watchNumAdd" parameterType="int">
+        update b_blog set watch = watch + 1 , updatetime = now() where id = #{id}
+    </update>
+
+</mapper>

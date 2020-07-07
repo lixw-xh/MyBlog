@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.blog.lxw.dao.CompensationQryDao">
+
+    <select id="middlePageQry" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog ORDER BY RAND() LIMIT 3
+    </select>
+
+    <select id="downPageQry" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog ORDER BY createtime DESC LIMIT 3
+    </select>
+
+    <select id="bottomPageQry" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog ORDER BY likes DESC LIMIT 3
+    </select>
+
+    <select id="accrodingToId" parameterType="String" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog where id = #{blogId}
+    </select>
+
+    <select id="getBlogData" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog ORDER BY id ASC LIMIT 4
+    </select>
+
+    <select id="getMostWatch" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog ORDER BY watch ASC LIMIT 3
+    </select>
+
+    <select id="searchResult" parameterType="String" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog where content like CONCAT('%', #{factor}, '%')
+    </select>
+
+    <select id="searchTagResult" parameterType="String" resultType="com.blog.lxw.entity.mysql.MysqlBlog">
+        select id,title,outline,content,picture,watch,comment,likes,author,type,createtime,updatetime
+        from b_blog where type = #{type}
+    </select>
+
+</mapper>
