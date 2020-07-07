@@ -3,7 +3,7 @@
 <mapper namespace="com.blog.lxw.dao.WatchAddDao">
 
     <update id="watchNumAdd" parameterType="int">
-        update b_blog set watch = watch + 1 where id = #{id}
+        update b_blog set watch = watch + 1 , updatetime = now() where id = #{id}
     </update>
 
 </mapper>
