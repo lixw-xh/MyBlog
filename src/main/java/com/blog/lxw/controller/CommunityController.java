@@ -2,6 +2,8 @@ package com.blog.lxw.controller;
 
 import com.blog.lxw.entity.mysql.MysqlBlog;
 import com.blog.lxw.service.CommunityService;
+import com.blog.lxw.service.CompensationQryService;
+import com.blog.lxw.util.MysqlResultHandle;
 import com.blog.lxw.util.ResultHandle;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -43,7 +45,13 @@ public class CommunityController {
     private ResultHandle resultHandle;
 
     @Autowired
+    private MysqlResultHandle mysqlResultHandle;
+
+    @Autowired
     private CommunityService communityService;
+
+    @Autowired
+    private CompensationQryService compensationQryService;
 
     //索引
     private final static String INDEX = "blog";
@@ -66,7 +74,15 @@ public class CommunityController {
                 .setSize(4)
                 .addSort("id", SortOrder.ASC)
                 .get();
-        resultHandle.doHandle(response, searchResponse);
+        if ("".equals(searchResponse) || null == searchResponse){
+            logger.info("开始Mysql补偿查询");
+            ArrayList<MysqlBlog> getBlogDatas = compensationQryService.getBlogData();
+            logger.info("Mysql数据格式处理");
+            mysqlResultHandle.doMysqlHandle(response, getBlogDatas);
+        }else{
+            logger.info("Es数据格式处理");
+            resultHandle.doHandle(response, searchResponse);
+        }
     }
 
     @RequestMapping(value = "/getMostWatch",method = RequestMethod.POST)
@@ -76,7 +92,15 @@ public class CommunityController {
                 .addSort("watch", SortOrder.DESC)
                 .setSize(3)
                 .get();
-        resultHandle.doHandle(response, searchResponse);
+        if ("".equals(searchResponse) || null == searchResponse){
+            logger.info("开始Mysql补偿查询");
+            ArrayList<MysqlBlog> mostWatchDatas = compensationQryService.getMostWatch();
+            logger.info("Mysql数据格式处理");
+            mysqlResultHandle.doMysqlHandle(response, mostWatchDatas);
+        }else{
+            logger.info("Es数据格式处理");
+            resultHandle.doHandle(response, searchResponse);
+        }
     }
 
     @RequestMapping(value = "/getPageNumber", method = RequestMethod.POST)
@@ -101,24 +125,7 @@ public class CommunityController {
         int row = (Integer.parseInt(pageNum) - 1)*4;
         //根据参数row进行取值
         ArrayList<MysqlBlog> blogDatas = communityService.getBlogAccordPageNumber(row);
-        JSONArray result = new JSONArray();
-        logger.info("放入JSONArray中");
-        //遍历集合
-        for (MysqlBlog blogData:blogDatas){
-            //blogData实体转为json
-            JSONObject jsonData = JSONObject.fromObject(blogData);
-            //取出createtime字段信息，实体转为json后createtime字段为集合类型，不能直接使用，集合中有时间戳，因此采用时间戳定位时间值
-            JSONObject timeData = JSONObject.fromObject(jsonData.get("createtime").toString());
-            //取出createtime字段集合中time（时间戳）信息，进行时间格式处理
-            String param = SDF.format(timeData.get("time"));
-            //将处理的时间放回createtime字段中，重新赋值
-            jsonData.put("createtime", param);
-            //将json数据放入json数组中
-            result.add(jsonData);
-        }
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("application/json; charset=utf-8");
-        logger.info("AJAX返回数据信息");
-        response.getWriter().write(com.alibaba.fastjson.JSONObject.toJSONString(result));
+        logger.info("Mysql数据格式处理");
+        mysqlResultHandle.doMysqlHandle(response, blogDatas);
     }
 }

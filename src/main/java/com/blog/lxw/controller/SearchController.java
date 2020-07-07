@@ -1,7 +1,12 @@
 package com.blog.lxw.controller;
 
 import com.blog.lxw.entity.es.EsBlog;
+import com.blog.lxw.entity.mysql.MysqlBlog;
+import com.blog.lxw.service.CompensationQryService;
+import com.blog.lxw.util.MysqlResultHandle;
 import com.blog.lxw.util.ResultHandle;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -19,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * @author Lixw
@@ -39,6 +46,16 @@ public class SearchController {
     @Autowired
     private ResultHandle resultHandle;
 
+    @Autowired
+    private MysqlResultHandle mysqlResultHandle;
+
+    @Autowired
+    private CompensationQryService compensationQryService;
+
+    //日期格式处理
+    private final static SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+
     @RequestMapping(value = "/searchPage", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView searchPage(EsBlog esBlog){
         ModelAndView mav = new ModelAndView("list");
@@ -54,8 +71,15 @@ public class SearchController {
         SearchResponse searchResponse = client.prepareSearch(INDEX)
                 .setQuery(QueryBuilders.termQuery("content", factor))
                 .get();
-        logger.info("得到搜索结果，进行数据处理");
-        resultHandle.doHandle(response, searchResponse);
+        if ("".equals(searchResponse) || null == searchResponse){
+            logger.info("开始Mysql补偿查询");
+            ArrayList<MysqlBlog> searchResults = compensationQryService.searchResult(factor);
+            logger.info("Mysql数据格式处理");
+            mysqlResultHandle.doMysqlHandle(response, searchResults);
+        }else{
+            logger.info("得到Es搜索结果，进行数据处理");
+            resultHandle.doHandle(response, searchResponse);
+        }
     }
 
     @RequestMapping(value = "/searchTagPage", method = {RequestMethod.GET,RequestMethod.POST})
@@ -73,7 +97,14 @@ public class SearchController {
         SearchResponse searchResponse = client.prepareSearch(INDEX)
                 .setQuery(QueryBuilders.matchPhraseQuery("type", type))
                 .get();
-        logger.info("得到搜索结果，进行数据处理");
-        resultHandle.doHandle(response, searchResponse);
+        if ("".equals(searchResponse) || null == searchResponse){
+            logger.info("开始Mysql补偿查询");
+            ArrayList<MysqlBlog> searchTagResults = compensationQryService.searchTagResult(type);
+            logger.info("Mysql数据格式处理");
+            mysqlResultHandle.doMysqlHandle(response, searchTagResults);
+        }else{
+            logger.info("得到Es搜索结果，进行数据处理");
+            resultHandle.doHandle(response, searchResponse);
+        }
     }
 }
