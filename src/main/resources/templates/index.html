@@ -73,7 +73,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
-            <h1>阅读并不让你强大，却让你感觉强大，你喜欢阅读吗？</h1><a href="#" class="hero-link">发现 更多</a>
+            <h1>阅读并不让你强大，却让你感觉强大，你喜欢阅读吗？</h1><a href="/blog/community" class="hero-link">发现 更多</a>
           </div>
         </div><a href=".intro" class="continue link-scroll "><i class="fa fa-long-arrow-down"></i> Down</a>
       </div>
@@ -162,12 +162,12 @@
                         "                    <div class=\"avatar\"></div>\n" +
                         "                    <div class=\"title\"><span>"+data[index].author+"</span></div></a>\n" +
                         "                  <div class=\"date\"><i class=\"icon-clock\"></i>"+data[index].createtime+"</div>\n" +
-                        "                  <div class=\"comments\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                        "                  <div class=\"comments\"><i class=\"icon-eye\"></i>"+data[index].watch+"</div>\n" +
                         "                </footer>\n" +
                         "              </div>\n" +
                         "            </div>\n" +
                         "          </div>\n" +
-                        "          <div class=\"image col-lg-5\"><img src=\""+data[index].picture+"\" alt=\"...\"></div>\n" +
+                        "          <div class=\"image col-lg-5\"><img style='widows: 300px;height: 200px' src=\""+data[index].picture+"\" alt=\"...\"></div>\n" +
                         "        </div>");
               })
             }
@@ -179,7 +179,7 @@
               success:function(data){
                 $.each(data, function (index,items) {
                   $("#downBlogData").append("<div class=\"post col-md-4\">\n" +
-                          "            <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
+                          "            <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img style='width: 350px;height: 350px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
                           "            <div class=\"post-details\">\n" +
                           "              <div class=\"post-meta d-flex justify-content-between\">\n" +
                           "                <div class=\"date\">"+data[index].createtime+"</div>\n" +
@@ -200,7 +200,7 @@
                 $.each(data, function (index, items) {
                   $("#bottomBlogData").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                           "                <div class=\"post d-flex align-items-center\" >\n" +
-                          "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                          "                  <div class=\"image\"><img style='width: 100px;height: 45px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                           "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
                           "                </div>\n" +
                           "                </a>");

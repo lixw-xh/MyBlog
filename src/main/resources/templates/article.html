@@ -136,7 +136,7 @@
           url:"/blog/accrodingToId",
           data: blogId,
           success: function (data) {
-            $("#blogData").append("<img src=\""+data.picture+"\" alt=\"...\" class=\"img-fluid\"><div class=\"post-meta d-flex justify-content-between\">\n" +
+            $("#blogData").append("<img style='width: 750px;height: 400px' src=\""+data.picture+"\" alt=\"...\" class=\"img-fluid\"><div class=\"post-meta d-flex justify-content-between\">\n" +
                     "                  <div class=\"category\"><a>"+data.type+"</a></div>\n" +
                     "                </div>\n" +
                     "                <h1>"+data.title+"<i class=\"fa fa-bookmark-o\"></i></h1>\n" +
@@ -146,21 +146,11 @@
                     "                  <div class=\"d-flex align-items-center flex-wrap\">\n" +
                     "                    <div class=\"date\"><i class=\"icon-clock\"></i> "+data.createtime+"</div>\n" +
                     "                    <div class=\"views\"><i class=\"icon-eye\"></i> "+data.watch+"</div>\n" +
-                    "                    <div class=\"comments meta-last\"><i class=\"icon-comment\"></i>"+data.comment+"</div>\n" +
                     "                  </div>\n" +
                     "                </div>\n" +
                     "                <div class=\"post-body\">\n" +
                     "                  <p>"+data.content+"</p>\n" +
-                    "                </div>" +
-                    "                <div class=\"posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row\"><a href=\"#\" class=\"prev-post text-left d-flex align-items-center\">\n" +
-                    "                    <div class=\"icon prev\"><i class=\"fa fa-angle-left\"></i></div>\n" +
-                    "                    <div class=\"text\"><strong class=\"text-primary\">Previous Post </strong>\n" +
-                    "                      <h6>I Bought a Wedding Dress.</h6>\n" +
-                    "                    </div></a><a href=\"#\" class=\"next-post text-right d-flex align-items-center justify-content-end\">\n" +
-                    "                    <div class=\"text\"><strong class=\"text-primary\">Next Post </strong>\n" +
-                    "                      <h6>I Bought a Wedding Dress.</h6>\n" +
-                    "                    </div>\n" +
-                    "                    <div class=\"icon next\"><i class=\"fa fa-angle-right\">   </i></div></a></div>");
+                    "                </div>");
           }
         });
         $.ajax({
@@ -171,11 +161,11 @@
             $.each(data, function (index, items) {
               $("#mostWatch").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                       "                <div class=\"item d-flex align-items-center\">\n" +
-                      "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                      "                  <div class=\"image\"><img style='width: 100px;height: 45px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                       "                  <div class=\"title\"><strong>"+data[index].title+"</strong>\n" +
                       "                    <div class=\"d-flex align-items-center\">\n" +
                       "                      <div class=\"views\"><i class=\"icon-eye\"></i> "+data[index].watch+"</div>\n" +
-                      "                      <div class=\"comments\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                      "                      <div class=\"comments\">"+data[index].type+"</div>\n" +
                       "                    </div>\n" +
                       "                  </div>\n" +
                       "                </div></a>");
@@ -190,7 +180,7 @@
             $.each(data, function (index, items) {
               $("#bottomBlogData").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                       "                <div class=\"post d-flex align-items-center\" >\n" +
-                      "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                      "                  <div class=\"image\"><img style='width: 100px;height: 45px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                       "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
                       "                </div>\n" +
                       "                </a>");

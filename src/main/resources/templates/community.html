@@ -137,7 +137,7 @@
             success:function (data) {
               $.each(data,function (index, items) {
                 $("#blogInformation").append("<div class=\"post col-xl-6\">\n" +
-                        "                <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
+                        "                <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img style='width: 350px;height: 300px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
                         "                <div class=\"post-details\">\n" +
                         "                  <div class=\"post-meta d-flex justify-content-between\">\n" +
                         "                    <div class=\"category\"><a>"+data[index].type+"</a></div>\n" +
@@ -148,7 +148,7 @@
                         "                      <div class=\"avatar\"></div>\n" +
                         "                      <div class=\"title\"><span>"+data[index].author+"</span></div></a>\n" +
                         "                    <div class=\"date\"><i class=\"icon-clock\"></i> "+data[index].createtime+"</div>\n" +
-                        "                    <div class=\"comments meta-last\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                        "                    <div class=\"comments meta-last\"><i class=\"icon-eye\"></i>"+data[index].watch+"</div>\n" +
                         "                  </footer>\n" +
                         "                </div>");
               })
@@ -162,11 +162,11 @@
               $.each(data, function (index, items) {
                 $("#mostWatch").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                         "                <div class=\"item d-flex align-items-center\">\n" +
-                        "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                        "                  <div class=\"image\"><img style='width: 100px;height: 45px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                         "                  <div class=\"title\"><strong>"+data[index].title+"</strong>\n" +
                         "                    <div class=\"d-flex align-items-center\">\n" +
                         "                      <div class=\"views\"><i class=\"icon-eye\"></i> "+data[index].watch+"</div>\n" +
-                        "                      <div class=\"comments\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                        "                      <div class=\"comments\">"+data[index].type+"</div>\n" +
                         "                    </div>\n" +
                         "                  </div>\n" +
                         "                </div></a>");
@@ -181,7 +181,7 @@
             $.each(data, function (index, items) {
               $("#bottomBlogData").append("<a href=\"/blog/idQry?id="+data[index].id+"\">\n" +
                       "                <div class=\"post d-flex align-items-center\" >\n" +
-                      "                  <div class=\"image\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
+                      "                  <div class=\"image\"><img style='width: 100px;height: 45px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></div>\n" +
                       "                  <div class=\"title\"><strong>"+data[index].title+"</strong><span class=\"date last-meta\">"+data[index].createtime+"</span></div>\n" +
                       "                </div>\n" +
                       "                </a>");
@@ -212,7 +212,7 @@
             $("#blogInformation").empty();
             $.each(data,function (index, items) {
               $("#blogInformation").append("<div class=\"post col-xl-6\">\n" +
-                      "                <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
+                      "                <div class=\"post-thumbnail\"><a href=\"/blog/idQry?id="+data[index].id+"\"><img style='width: 350px;height: 300px' src=\""+data[index].picture+"\" alt=\"...\" class=\"img-fluid\"></a></div>\n" +
                       "                <div class=\"post-details\">\n" +
                       "                  <div class=\"post-meta d-flex justify-content-between\">\n" +
                       "                    <div class=\"category\"><a>"+data[index].type+"</a></div>\n" +
@@ -223,7 +223,7 @@
                       "                      <div class=\"avatar\"></div>\n" +
                       "                      <div class=\"title\"><span>"+data[index].author+"</span></div></a>\n" +
                       "                    <div class=\"date\"><i class=\"icon-clock\"></i> "+data[index].createtime+"</div>\n" +
-                      "                    <div class=\"comments meta-last\"><i class=\"icon-comment\"></i>"+data[index].comment+"</div>\n" +
+                      "                    <div class=\"comments meta-last\"><i class=\"icon-eye\"></i>"+data[index].watch+"</div>\n" +
                       "                  </footer>\n" +
                       "                </div>");
             })
